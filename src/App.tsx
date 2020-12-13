@@ -1,18 +1,30 @@
 import * as React from 'react';
 import { NewListForm } from "./components/NewListForm";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { lightBlue } from "@material-ui/core/colors"
+import { Paper } from "@material-ui/core";
 
 const theme = createMuiTheme({
   palette: {
+    primary: {
+      main: "#362C28"
+    },
+    secondary: lightBlue,
     background: {
-      default: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"
+      default: "#7C9082",
+      paper: "#7C9082"
     }
   }
 });
 
+
 function App() {
   return (
-    <NewListForm />
+    <ThemeProvider theme={theme}>
+      <Paper style={{ width: "100vw", height: "100vh" }}>
+        <NewListForm />
+      </Paper>
+    </ThemeProvider>
   );
 };
 
