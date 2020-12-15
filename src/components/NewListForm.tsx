@@ -2,6 +2,7 @@ import * as React from "react";
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField } from "./NewListForm/TextField";
+import { Checkbox } from "./Test/Checkbox";
 
 const useStyles = makeStyles({
     root: {
@@ -18,6 +19,8 @@ export const NewListForm: React.FC = () => {
             <h3>Create a new Todo List.</h3>
             <TextField id="Title" required={true} helperText="Name for the new list" variant="outlined" />
             <TextField id="Description" required={false} helperText="Describe the list." variant="outlined" />
+            <br />
+            <Checkbox />
         </Container>
     );
 };
