@@ -3,8 +3,8 @@ import { AppBar as MuiAppBar, Typography } from "@material-ui/core";
 
 export const AppBar = () => {
     return (
-        <MuiAppBar color="secondary">
-            <Typography variant="h4">Typescript To-Do</Typography>
+        <MuiAppBar color="transparent" position="sticky" >
+            <Typography variant="h2" color="secondary">Typescript To-Do</Typography>
         </MuiAppBar>
     )
 };

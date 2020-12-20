@@ -1,17 +1,25 @@
 import * as React from "react";
-import { Container } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 import { TextField } from "./NewListForm/TextField";
-import { Checkbox } from "./Test/Checkbox";
+import { List } from "../Types/types";
+
+type State = List;
 
 export const NewListForm: React.FC = () => {
+    const initialState = { id: 1, title: "", description: "", list: [] }
+    const [list, setList] = React.useState(initialState);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(e);
+    };
+
     return (
         <Container>
-            <h3>Create a new Todo List.</h3>
-            <TextField id="Title" required={true} helperText="Name for the new list" variant="outlined" />
-            <TextField id="Description" required={false} helperText="Describe the list." variant="outlined" />
-            <br />
-            <Checkbox color="primary" label="Primary" labelColor="white" />
-            <Checkbox color="secondary" label="Secondary" />
+            <Typography variant="h4" color="primary">Create a new Todo List.</Typography>
+            <TextField id="title" required={true} value={list.title} helperText="Name for the new list" variant="outlined" handleChange={handleChange} />
+            <TextField id="description" value={list.description} required={false} helperText="Describe the list." variant="outlined" handleChange={handleChange} />
+
+
         </Container>
     );
 };

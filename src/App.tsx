@@ -1,30 +1,47 @@
 import * as React from 'react';
 import { NewListForm } from "./components/NewListForm";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import { lightBlue, pink } from "@material-ui/core/colors"
+import { Shadows } from "@material-ui/core/styles/shadows";
 import { Paper, CssBaseline } from "@material-ui/core";
 import { AppBar } from './components/AppBar';
+import { List } from "./Types/types";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#362C28"
+      main: "#2A2F33"
     },
     secondary: {
-      main: lightBlue[400],
+      main: "#8c8c9c",
     },
     background: {
-      default: pink[300],
-      paper: "#7C9082"
+      default: "#BBB6A5",
+      paper: "#8C9491"
     },
     action: {
       hoverOpacity: 0
     }
-  }
+  },
+  shadows: Array(25).fill("none") as Shadows
 });
 
+type State = {
+  /** Array of all to do lists */
+  all: List[];
+};
+
+/** TODO: Fix action type. */
+function reducer(state: State, action: any) {
+  switch (action.type) {
+
+    default:
+      throw new Error();
+  }
+}
 
 function App() {
+  const initialState: State = { all: [] };
+
   return (
     <ThemeProvider theme={theme}>
       <AppBar />
