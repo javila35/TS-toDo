@@ -30,18 +30,7 @@ type State = {
   all: List[];
 };
 
-/** TODO: Fix action type. */
-function reducer(state: State, action: any) {
-  switch (action.type) {
-
-    default:
-      throw new Error();
-  }
-}
-
 function App() {
-  const initialState: State = { all: [] };
-
   return (
     <ThemeProvider theme={theme}>
       <AppBar />
