@@ -6,6 +6,7 @@ Learn typescript and MaterialUI by creating a medium complexity to do list app.
     - [ ] Create basic app structure
         - [ ] Add a symbol select option for new list form
             - [ ] Decide if symbol goes at the list level or at the action level
+    - [ ] Export named exports from New List directory.
 - [ ] Styling
     - [ ] Add MaterialUI components
         - [x] Finish styling AppBar
