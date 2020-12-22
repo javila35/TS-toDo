@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Container, Typography } from "@material-ui/core";
-import { TextField } from "./NewListForm/TextField";
+import { TextField } from "../components/NewList";
 import { List } from "../Types/types";
 
 type State = List;
 
-export const NewListForm: React.FC = () => {
+export const NewListCard: React.FC = () => {
     const initialState = { id: 1, title: "", description: "", list: [] }
     const [list, setList] = React.useState(initialState);
 

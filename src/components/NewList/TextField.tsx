@@ -28,5 +28,5 @@ export const TextField: React.FC<TextFieldProps> = ({ id, required, helperText, 
                 variant={variant}
             />
         </FormControl>
-    )
-}
+    );
+};

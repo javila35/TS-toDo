@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NewListForm } from "./components/NewListForm";
+import { NewListCard } from "./views/NewListCard";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { Shadows } from "@material-ui/core/styles/shadows";
 import { Paper, CssBaseline } from "@material-ui/core";
@@ -35,7 +35,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <AppBar />
       <Paper>
-        <NewListForm />
+        <NewListCard />
       </Paper>
       <CssBaseline />
     </ThemeProvider>
