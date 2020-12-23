@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Input } from "@material-ui/core";
+import { OutlinedInput as Input } from "@material-ui/core";
 
 type ToDoProps = {
     /** Identifier */
@@ -7,9 +7,9 @@ type ToDoProps = {
     /** The task of the the to do */
     action: string;
     /** Callback to update parent state */
-    handleChange: () => void;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const ToDoInput: React.FC<ToDoProps> = ({ action, handleChange }) => {
-    return (<Input value={action} onChange={handleChange} />);
+export const ToDoInput: React.FC<ToDoProps> = ({ action, handleChange, id }) => {
+    return (<Input defaultValue={action} label={`Action ${id}`} onChange={handleChange} />);
 };
