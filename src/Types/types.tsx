@@ -6,5 +6,12 @@ export type List = {
     /** Description of To Do list */
     description: string;
     /** List of actions */
-    list: { action: string, id: number }[]
+    actionList: Array<Action>;
+}
+
+// This Array type isn't working... 
+// Or it's not working in the component side.
+export interface Action {
+    action: string;
+    id: number;
 }
