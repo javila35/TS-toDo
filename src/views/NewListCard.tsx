@@ -1,18 +1,26 @@
 import * as React from "react";
 import { Container, Typography } from "@material-ui/core";
-import { TextField } from "../components/NewList";
-import { List } from "../Types/types";
+import { TextField, ToDoInput } from "../components/NewList";
+import { List, Action } from "../Types/types";
 
 type State = List;
 
 export const NewListCard: React.FC = () => {
-    const initialState = { id: 1, title: "", description: "", list: [] }
-    const [list, setList] = React.useState(initialState);
+    const initialState = { id: 1, title: "", description: "", actionList: [] }
+    const [newList, setNewList] = React.useState(initialState);
 
     const handleHeaderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setList({
-            ...list,
+        setNewList({
+            ...newList,
             [e.target.id]: e.target.value
+        });
+    };
+
+    const handleActionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newActionArray: Array<Action> = [...newList.actionList]
+        setNewList({
+            ...newList,
+            newList.actionList = newActionArray
         })
     };
 
@@ -36,7 +44,9 @@ export const NewListCard: React.FC = () => {
                 handleChange={handleHeaderChange}
             />
 
-
+            <Container maxWidth="sm">
+                <ToDoInput id={1} action={""} handleChange={handleActionChange} />
+            </Container>
         </Container>
     );
 };
