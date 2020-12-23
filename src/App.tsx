@@ -1,29 +1,12 @@
 import * as React from 'react';
 import { NewListCard } from "./views/NewListCard";
-import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import { Shadows } from "@material-ui/core/styles/shadows";
+import { ThemeProvider } from "@material-ui/core/styles";
 import { Paper, CssBaseline } from "@material-ui/core";
 import { AppBar } from './components/AppBar';
+import { createCustomTheme } from "./theme";
 import { List } from "./Types/types";
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#2A2F33"
-    },
-    secondary: {
-      main: "#8c8c9c",
-    },
-    background: {
-      default: "#BBB6A5",
-      paper: "#8C9491"
-    },
-    action: {
-      hoverOpacity: 0
-    }
-  },
-  shadows: Array(25).fill("none") as Shadows
-});
+const theme = createCustomTheme();
 
 type State = {
   /** Array of all to do lists */
