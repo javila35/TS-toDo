@@ -1,4 +1,4 @@
-export type List = {
+export interface List {
     /** ID generated to keep list unique */
     id: string;
     /** Title of the To Do list */
@@ -12,6 +12,6 @@ export type List = {
 // This Array type isn't working... 
 // Or it's not working in the component side.
 export interface Action {
-    action: string;
+    task: string;
     id: number;
 }
