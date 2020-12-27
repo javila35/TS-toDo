@@ -1,4 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles";
+import { MuiInputLabel } from "./overrides";
 
 const customTheme = {
     palette: {
@@ -15,6 +16,9 @@ const customTheme = {
         action: {
             hoverOpacity: 0
         }
+    },
+    overrides: {
+        MuiInputLabel
     }
 }
 
