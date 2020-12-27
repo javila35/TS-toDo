@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NewListCard } from "./views/NewListCard";
+import { NewListForm, ListCard } from "./views";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Paper, CssBaseline } from "@material-ui/core";
 import { AppBar } from './components/AppBar';
@@ -14,11 +14,21 @@ type State = {
 };
 
 function App() {
+
+  const renderCards = () => {
+    // take state.all and render a card for each list.
+  };
+
+  const saveForm = () => {
+    // this is the callback to be passed to NewListForm
+    // Will take form state and save it into state.all
+  }
   return (
     <ThemeProvider theme={theme}>
       <AppBar />
       <Paper>
-        <NewListCard />
+        {renderCards()}
+        <NewListForm saveForm={saveForm} />
       </Paper>
       <CssBaseline />
     </ThemeProvider>
