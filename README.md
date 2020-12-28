@@ -16,6 +16,8 @@ Learn typescript and MaterialUI by creating a medium complexity to do list app.
         - [x] Implement handleChange on NewListForm for title and description
         - [x] Create to do list functionality
     - [ ] Add save functionality
-        - [ ] Pass callback to NewListForm to save the form and create a list card
+        - [x] Pass callback to NewListForm to save the form and create a list card
         - [ ] Create functionality for renderCards
+        - [ ] Clear form on state save
+        - [ ] Can update an existing list
     - [ ] Create reducer at the top level
