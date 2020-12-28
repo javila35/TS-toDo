@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Container, Typography } from "@material-ui/core";
-import { TextField, ToDoInput, Button } from "../components/NewList";
+import { TextField, ToDoInput, AddButton, SaveButton } from "../components/NewList";
 import { List } from "../Types/types";
 
 type State = List;
 
 type FormProps = {
     // callback to take form state, and pass it up.
-    saveForm: () => void;
+    saveForm: (stateForm: List) => void;
 }
 
 export const NewListForm: React.FC<FormProps> = ({ saveForm }) => {
@@ -71,8 +71,8 @@ export const NewListForm: React.FC<FormProps> = ({ saveForm }) => {
             <br />
             {renderActionInputs()}
             <br />
-            <Button message="Add task" handleClick={addNewTask} />
-            <Button message="Save New List" handleClick={saveForm} />
+            <AddButton message="Add task" handleClick={addNewTask} />
+            <SaveButton message="Save New List" handleSave={saveForm} stateForm={newList} />
         </Container>
     );
 };

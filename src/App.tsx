@@ -12,14 +12,16 @@ type State = {
 };
 
 function App() {
+  const initialState: State = {all: []};
+  const [state, setState] = React.useState(initialState)
   const renderCards = () => {
     // take state.all and render a card for each list.
   };
 
-  const saveForm = () => {
-    // this is the callback to be passed to NewListForm
-    // Will take form state and save it into state.all
-  }
+  const saveForm = (stateForm: List) => {
+    setState({...state, all: [...state.all, stateForm]});
+  };
+
   return (
     <ThemeProvider theme={createCustomTheme()}>
       <AppBar />
