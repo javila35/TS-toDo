@@ -15,6 +15,7 @@ interface AddButtonProps extends ButtonProps {
 interface SaveButtonProps extends ButtonProps {
     handleSave: (stateForm: List) => void;
     stateForm: List;
+    clearForm: () => void;
 };
 
 
@@ -24,11 +25,12 @@ export const AddButton: React.FC<AddButtonProps> = ({ handleClick, message }) =>
     );
 };
 
-export const SaveButton: React.FC<SaveButtonProps> = ({handleSave, stateForm, message}) => {
+export const SaveButton: React.FC<SaveButtonProps> = ({ handleSave, stateForm, message, clearForm }) => {
     const saveList = (e: React.MouseEvent) => {
-        handleSave(stateForm)
+        handleSave(stateForm);
+        clearForm();
     };
-    return(
+    return (
         <MuiButton size="small" onClick={saveList}>{message}</MuiButton>
     )
 };

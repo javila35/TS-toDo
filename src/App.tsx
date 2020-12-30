@@ -12,14 +12,15 @@ type State = {
 };
 
 function App() {
-  const initialState: State = {all: []};
+  const initialState: State = { all: [] };
   const [state, setState] = React.useState(initialState)
+
   const renderCards = () => {
-    // take state.all and render a card for each list.
+    return state.all.map((list, index) => <ListCard key={index} list={list} />);
   };
 
   const saveForm = (stateForm: List) => {
-    setState({...state, all: [...state.all, stateForm]});
+    setState({ ...state, all: [...state.all, stateForm] });
   };
 
   return (
@@ -27,7 +28,7 @@ function App() {
       <AppBar />
       <Paper>
         {renderCards()}
-        <NewListForm saveForm={saveForm} />
+        <NewListForm saveForm={saveForm} listNumber={state.all.length} />
       </Paper>
       <CssBaseline />
     </ThemeProvider>

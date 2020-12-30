@@ -6,12 +6,14 @@ import { List } from "../Types/types";
 type State = List;
 
 type FormProps = {
-    // callback to take form state, and pass it up.
+    /** callback to take form state, and pass it up. */
     saveForm: (stateForm: List) => void;
-}
+    /** length of all array for new list id */
+    listNumber: number;
+};
 
-export const NewListForm: React.FC<FormProps> = ({ saveForm }) => {
-    const initialState: List = { id: "1", title: "", description: "", actionList: [{ id: 0, task: "" }] }
+export const NewListForm: React.FC<FormProps> = ({ saveForm, listNumber }) => {
+    const initialState: List = { id: listNumber, title: "", description: "", actionList: [{ id: listNumber, task: "" }] }
     const [newList, setNewList] = React.useState(initialState);
 
     const handleHeaderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,20 +35,25 @@ export const NewListForm: React.FC<FormProps> = ({ saveForm }) => {
     const renderActionInputs = () => {
         return newList.actionList.map((action, index) => {
             return (
-                <>
+                <React.Fragment key={index}>
                     <ToDoInput id={index} action={action.task} handleChange={handleActionChange} />
                     <br />
-                </>
+                </React.Fragment>
             )
         });
     };
 
     const addNewTask = () => {
-        const newAction = { id: newList.actionList.length + 1, task: "" }
+        const newAction = { id: newList.actionList.length, task: "" }
         setNewList({
             ...newList,
             actionList: [...newList.actionList, newAction]
         });
+    };
+
+    const clearForm = () => {
+        // Inputs are not clearing on state update
+        setNewList(initialState);
     };
 
     return (
@@ -72,7 +79,7 @@ export const NewListForm: React.FC<FormProps> = ({ saveForm }) => {
             {renderActionInputs()}
             <br />
             <AddButton message="Add task" handleClick={addNewTask} />
-            <SaveButton message="Save New List" handleSave={saveForm} stateForm={newList} />
+            <SaveButton message="Save New List" handleSave={saveForm} stateForm={newList} clearForm={clearForm} />
         </Container>
     );
 };
