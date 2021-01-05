@@ -1,5 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import { MuiInputLabel } from "./overrides";
+import { MuiInputLabel, MuiContainer } from "./overrides";
 
 const customTheme = {
     palette: {
@@ -18,8 +18,9 @@ const customTheme = {
         }
     },
     overrides: {
-        MuiInputLabel
-    }
-}
+        MuiInputLabel,
+        MuiContainer,
+    },
+};
 
 export const createCustomTheme = () => createMuiTheme({ ...customTheme });

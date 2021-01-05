@@ -26,8 +26,9 @@ function App() {
   return (
     <ThemeProvider theme={createCustomTheme()}>
       <AppBar />
+      {renderCards()}
       <Paper>
-        {renderCards()}
+
         <NewListForm saveForm={saveForm} listNumber={state.all.length} />
       </Paper>
       <CssBaseline />
